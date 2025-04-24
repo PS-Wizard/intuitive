@@ -29,9 +29,9 @@
     </figure>
 
     <div class="card-body flex flex-col justify-end flex-grow">
-        <div>
+        <div class="border-t-2">
             <h2
-                class="card-title font-semibold text-md uppercase tracking-wide"
+                class="card-title font-semibold text-md uppercase tracking-wide mt-8"
             >
                 {title}
                 {#if isNew}

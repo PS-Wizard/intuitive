@@ -4,6 +4,9 @@
     font-optical-sizing: auto;
     font-style: normal;
 }
+html {
+    scroll-snap-type: proximity;
+}
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";

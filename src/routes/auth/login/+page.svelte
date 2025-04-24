@@ -1,14 +1,36 @@
 <script>
-    import { fade } from "svelte/transition";
+    import { goto } from "$app/navigation";
+    import { isLoggedIn, loginUser } from "$lib/auth.js";
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        if (isLoggedIn()) {
+            goto("/dashboard");
+        }
+    });
+    let email = "";
+    let password = "";
+    let error = "";
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        try {
+            const user = loginUser({ email, password });
+            error = "";
+            console.log("Logged in:", user);
+            // maybe redirect later
+            goto("/dashboard");
+        } catch (err) {
+            error = err.message;
+        }
+    };
 </script>
 
-<main class="w-full flex flex-col lg:flex-row-reverse h-screen" in:fade>
-    <!-- Right Side - Yellow block (hidden on small screens) -->
+<main class="w-full flex flex-col lg:flex-row-reverse h-screen">
     <div
         class="hidden lg:flex flex-1 flex-col items-center justify-center bg-blue-300"
     ></div>
 
-    <!-- Left Side - Login Form -->
     <div class="flex-1 flex items-center justify-center bg-white text-gray-600">
         <div class="w-full max-w-md space-y-8 px-4 sm:px-0">
             <div>
@@ -66,28 +88,41 @@
                 </p>
             </div>
 
-            <form class="space-y-5">
+            <form class="space-y-5" on:submit={handleLogin}>
                 <div>
                     <label class="font-medium">Email</label>
                     <input
                         type="email"
+                        bind:value={email}
                         required
-                        class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                        class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg
+                {error
+                            ? 'border-red-500 border-2 focus:border-red-500'
+                            : 'focus:border-indigo-600'}"
                     />
                 </div>
                 <div>
                     <label class="font-medium">Password</label>
                     <input
                         type="password"
+                        bind:value={password}
                         required
-                        class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                        class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border shadow-sm rounded-lg
+                {error
+                            ? 'border-red-500 border-2 focus:border-red-500'
+                            : 'focus:border-indigo-600'}"
                     />
                 </div>
                 <button
+                    type="submit"
                     class="w-full px-4 py-2 text-white font-medium bg-black hover:bg-white hover:text-black hover:border active:bg-black rounded-lg duration-150"
                 >
                     Log in
                 </button>
+
+                {#if error}
+                    <p class="text-red-500 text-sm mt-2">{error}</p>
+                {/if}
             </form>
         </div>
     </div>

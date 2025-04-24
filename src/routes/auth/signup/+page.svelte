@@ -1,15 +1,32 @@
 <script>
-    import { fade } from "svelte/transition";
+    import { goto } from "$app/navigation";
+    import { signupUser } from "$lib/auth.js";
+
+    let name = "";
+    let email = "";
+    let password = "";
+    let error = "";
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        try {
+            const user = signupUser({ name, email, password });
+            console.log("Signed up:", user);
+            goto("/auth/login");
+        } catch (err) {
+            error = err.message;
+        }
+    };
 </script>
 
-<main class="w-full flex flex-col lg:flex-row h-screen" in:fade>
+<main class="w-full flex flex-col lg:flex-row h-screen">
     <!-- Left Side - Yellow block (hidden on small screens) -->
     <div
         class="hidden lg:flex flex-1 flex-col items-center justify-center bg-yellow-300"
     ></div>
 
     <!-- Right Side - Signup Form -->
-    <div class="flex-1 flex items-center justify-center bg-white text-gray-600 ">
+    <div class="flex-1 flex items-center justify-center bg-white text-gray-600">
         <div class="w-full max-w-md space-y-8 px-4 sm:px-0">
             <div>
                 <div class="mt-5 space-y-2">
@@ -61,11 +78,12 @@
                 <span class="block w-full h-px bg-gray-300"></span>
             </div>
 
-            <form class="space-y-5">
+            <form class="space-y-5" on:submit={handleSubmit}>
                 <div>
                     <label class="font-medium">Name</label>
                     <input
                         type="text"
+                        bind:value={name}
                         required
                         class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                     />
@@ -74,6 +92,7 @@
                     <label class="font-medium">Email</label>
                     <input
                         type="email"
+                        bind:value={email}
                         required
                         class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                     />
@@ -82,6 +101,7 @@
                     <label class="font-medium">Password</label>
                     <input
                         type="password"
+                        bind:value={password}
                         required
                         class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                     />
@@ -92,6 +112,10 @@
                     Create account
                 </button>
             </form>
+
+            {#if error}
+                <p class="text-red-500 mt-2">{error}</p>
+            {/if}
         </div>
     </div>
 </main>

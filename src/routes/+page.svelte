@@ -5,6 +5,9 @@
     import Logo from "../components/logo.svelte";
     import Navbar from "../components/navbar.svelte";
     import Card from "../components/card.svelte";
+    import Footer from "../components/footer.svelte";
+    import { isLoggedIn } from "$lib/auth";
+    import { goto } from "$app/navigation";
 
     gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +16,11 @@
     let nextSection;
     let cardContainer;
     let heroBackgroundColor = "white"; // Reactive variable for background color
+    onMount(() => {
+        if (isLoggedIn()) {
+            goto("/dashboard");
+        }
+    });
 
     onMount(() => {
         gsap.to(title, {
@@ -39,14 +47,14 @@
 
         gsap.to(cardContainer, {
             xPercent: -4.9 * cardContainer.children.length,
-            ease: "easeInOut",
+            ease: "power1.in",
             scrollTrigger: {
                 trigger: nextSection,
                 pin: true,
                 start: "top top",
                 end: `+=${cardContainer.offsetWidth}`,
-                scrub: 0.9,
-                invalidateOnRefresh: true, // Re-calculate on resize
+                scrub: true,
+                invalidateOnRefresh: true,
             },
         });
     });
@@ -78,16 +86,32 @@
 
     const statData = [
         { text: "100% Opensource", bg: "#fde68a" }, // yellow
-        { text: "30+ Sponsors", bg: "#bfdbfe" }, // blue
-        { text: "&infin; Courses", bg: "#fca5a5" }, // red
+        { text: "50+ Courses", bg: "#fca5a5" }, // red
         { text: "69k+ Learners", bg: "#86efac" }, // green
         { text: "By Developers", bg: "#e9d5ff" }, // purple
-        { text: "For Developers", bg: "#fcd34d" }, // deeper yellow
+        { text: "For Developers", bg: "#fcff42" }, // deeper yellow
     ];
+
+    let statContainer;
+    let statSections = [];
+
+    onMount(() => {
+        statSections = statContainer.querySelectorAll(".stat");
+
+        statSections.forEach((section, i) => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+                pin: true,
+                pinSpacing: false,
+            });
+        });
+    });
 </script>
 
 <Navbar />
-
 <section
     bind:this={hero}
     style="background-color: {heroBackgroundColor};"
@@ -140,69 +164,42 @@
     </div>
 </section>
 
-{#each statData as { text, bg }, i}
-    <div
-        class="stat-section h-screen w-screen flex items-center justify-center overflow-hidden scroll-snap-start"
-        style="background-color: {bg};"
+<div bind:this={statContainer} class="relative bg-black">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+        ><path
+            fill="#fde68a"
+            fill-opacity="1"
+            d="M0,0L20,26.7C40,53,80,107,120,133.3C160,160,200,160,240,154.7C280,149,320,139,360,133.3C400,128,440,128,480,144C520,160,560,192,600,186.7C640,181,680,139,720,112C760,85,800,75,840,74.7C880,75,920,85,960,106.7C1000,128,1040,160,1080,165.3C1120,171,1160,149,1200,165.3C1240,181,1280,235,1320,234.7C1360,235,1400,181,1420,154.7L1440,128L1440,320L1420,320C1400,320,1360,320,1320,320C1280,320,1240,320,1200,320C1160,320,1120,320,1080,320C1040,320,1000,320,960,320C920,320,880,320,840,320C800,320,760,320,720,320C680,320,640,320,600,320C560,320,520,320,480,320C440,320,400,320,360,320C320,320,280,320,240,320C200,320,160,320,120,320C80,320,40,320,20,320L0,320Z"
+        ></path></svg
     >
-        <h1
-            class="text-[10vw] font-bold uppercase leading-none text-black w-full px-16 text-center sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full"
+    {#each statData as { text, bg }, i}
+        <section
+            class="stat h-screen w-screen flex items-center justify-center"
+            style="background-color: {bg};"
         >
-            {@html text}
-        </h1>
-    </div>
-{/each}
+            <h1
+                class="text-[10vw] font-bold uppercase leading-none text-black w-full px-16 text-center sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full"
+            >
+                {@html text}
+            </h1>
+        </section>
+    {/each}
+</div>
 
+<section class="h-screen w-screen bg-black"></section>
 <!-- Next section after stats -->
 <section
-    class="h-screen w-screen bg-black text-white flex justify-center items-center"
+    class="h-screen w-screen bg-white text-black flex justify-center items-center"
 >
-    <button
-        class="cursor-pointer bg-white text-black text-[9vw] hover:bg-yellow-100 hover:underline transition duration-200 font-medium tracking widest uppercase p-4 leading-none text-black sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full"
-        >Join Us Now!</button
+    <a
+        class="cursor-pointer bg-black text-white text-[9vw] hover:bg-yellow-100 hover:text-black transition duration-200 font-medium tracking widest uppercase p-4 leading-none text-black sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full"
+        href="/auth/signup">Join Us Now!</a
     >
 </section>
 
-<section
-    class="footer h-screen w-screen bg-black text-white flex flex-col justify-center items-center"
->
-    <h1
-        class="text-[12vw] font-bold uppercase tracking-wide underline leading-none text-center mb-8"
-    >
-        INTUITIVE
-    </h1>
-    <div
-        class="links flex gap-8 text-lg font-medium justify-center items-center"
-    >
-        <a
-            href="#about"
-            class="uppercase hover:underline transition duration-300">About</a
-        >
-        <a
-            href="#services"
-            class="uppercase hover:underline transition duration-300"
-            >Services</a
-        >
-        <a
-            href="#contact"
-            class="uppercase hover:underline transition duration-300">Contact</a
-        >
-        <a
-            href="#privacy"
-            class="uppercase hover:underline transition duration-300">Privacy</a
-        >
-    </div>
-    <div class="mt-8 text-sm text-center">
-        <p>&copy; 2025 INTUITIVE. All Rights Reserved.</p>
-    </div>
-</section>
+<Footer />
 
 <style>
-    @media (max-width: 768px) {
-        .links {
-            flex-direction: column;
-        }
-    }
     .title {
         color: black;
     }
