@@ -55,6 +55,14 @@
         // Animate all .card elements from center
         const allCards = document.querySelectorAll(".card");
 
+        gsap.from(".hero-title", {
+            opacity: 0,
+            y: -30,
+            duration: 0.8,
+            ease: "power3.out",
+            delay: 1.5,
+        });
+
         gsap.fromTo(
             allCards,
             {
@@ -80,14 +88,15 @@
 <section
     class="min-h-screen w-full px-8 py-12 space-y-20 flex flex-col items-center gap-4"
 >
+    <h1 class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase" >
+        Dashboard
+    </h1>
     <!-- My Current Courses -->
     <div>
         <div
             class="flex flex-col lg:flex-row items-center justify-between gap-4 mb-6"
         >
-            <h2
-                class="text-lg border-2 border-black font-bold bg-yellow-200 px-4 py-2 rounded-full font-bold uppercase"
-            >
+            <h2 class="text-lg border-2 border-black font-bold bg-yellow-200 px-4 py-2 rounded-full font-bold uppercase" >
                 Pick up where you left off!
             </h2>
             <div
@@ -127,11 +136,12 @@
             >
                 Checkout Top Courses
             </h2>
-            <div
+            <a
+                href="/dashboard/courses"
                 class="border-2 border-black text-lg font-semibold px-4 py-2 rounded-full hover:bg-black hover:text-white cursor-pointer transition duration-200"
             >
                 View More ->
-            </div>
+            </a>
         </div>
 
         <div

@@ -26,11 +26,11 @@
         gsap.to(title, {
             scale: 20,
             duration: 1.5,
-            ease: "power2.inOut",
+            ease: "power4.in",
             scrollTrigger: {
                 trigger: hero,
                 start: "top top",
-                end: "+=1000",
+                end: "+=2000",
                 scrub: true,
                 pin: true,
                 onUpdate: (self) => {
@@ -103,6 +103,7 @@
                 trigger: section,
                 start: "top top",
                 end: "bottom top",
+                ease: "easeInOut",
                 scrub: true,
                 pin: true,
                 pinSpacing: false,
@@ -117,10 +118,7 @@
     style="background-color: {heroBackgroundColor};"
     class="hero h-screen w-screen flex items-center justify-center overflow-hidden"
 >
-    <h1
-        bind:this={title}
-        class="title text-[15vw] font-medium tracking-tight leading-none text-white z-20"
-    >
+    <h1 bind:this={title} class="title text-[15vw] font-medium tracking-tight leading-none text-white z-20" >
         INTUITIVE<sup class="align-super">™</sup>
     </h1>
 </section>

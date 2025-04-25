@@ -20,7 +20,7 @@
     <div class="hidden md:flex space-x-6 text-sm font-medium">
         {#if loggedIn}
             <a
-                href="/courses"
+                href="/dashboard/courses"
                 class="btn btn-secondary border border-black rounded-lg btn-md"
             >
                 Courses
@@ -70,7 +70,7 @@
 {#if isOpen}
     <div class="md:hidden px-6 pb-4 space-y-2 text-sm font-medium uppercase">
         {#if loggedIn}
-            <a href="/courses" class="block">Courses</a>
+            <a href="/dashboard/courses" class="block">Courses</a>
             <a href="/dashboard/challenges" class="block">Challenges</a>
             <a href="/profile" class="block">Profile</a>
         {:else}

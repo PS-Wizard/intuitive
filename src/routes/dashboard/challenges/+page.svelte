@@ -156,9 +156,7 @@
 
 <Navbar />
 <section class="py-16 px-6 md:px-12 lg:px-24 space-y-10">
-    <h1
-        class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase"
-    >
+    <h1 class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase" >
         Challenges
     </h1>
 
@@ -198,12 +196,12 @@
                     {/each}
                 </select>
             </div>
-            <button class="btn btn-outline rounded-lg" on:click={clearFilters}>
+            <button class="btn btn-primary rounded-lg" on:click={clearFilters}>
                 Clear Filters
             </button>
-            <button class="btn btn-primary rounded-lg" on:click={sortProblems}
-                >Sort</button
-            >
+            <button class="btn btn-primary bg-orange-100 border-2 text-black rounded-lg" on:click={clearFilters}>
+                Challenge A Friend
+            </button>
         </div>
     </div>
 
