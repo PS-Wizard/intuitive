@@ -36,7 +36,7 @@
         badgeA: "Primeagen",
         badgeB: "Enrolled",
         isNew: false,
-        location: `/courses/my-course-${i}`,
+        location: `/specificCourse`,
     }));
 
     const exploreCourses = cardTypes.map((c, i) => ({

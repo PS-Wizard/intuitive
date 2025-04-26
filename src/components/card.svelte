@@ -1,4 +1,6 @@
 <script>
+    import { goto } from "$app/navigation";
+
     let {
         title = "Default Title",
         description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam error natus laudantium pariatur dolor cum autem quia molestiae culpa",
@@ -11,7 +13,7 @@
         imgPadding = "p-4",
     } = $props();
     function navigate() {
-        window.location.href = location;
+        goto(location);
     }
 </script>
 
@@ -41,7 +43,7 @@
                 {/if}
             </h2>
             <p
-                class="text-s text-gray-700  transition-colors duration-200 ease-in-out"
+                class="text-s text-gray-700 transition-colors duration-200 ease-in-out"
             >
                 {description}
             </p>
@@ -52,4 +54,3 @@
         </div>
     </div>
 </div>
-

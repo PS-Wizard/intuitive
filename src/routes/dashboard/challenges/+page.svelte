@@ -16,6 +16,7 @@
             title: "Palindrome Check",
             difficulty: "Easy",
             category: "String",
+            completed: true,
         },
         {
             id: 3,
@@ -29,22 +30,26 @@
             title: "Merge K Sorted Lists",
             difficulty: "Hard",
             category: "Linked List",
+            completed: true,
         },
         {
             id: 6,
             title: "Valid Parentheses",
             difficulty: "Easy",
             category: "Stack",
+            completed: true,
         },
         {
             id: 7,
             title: "Longest Substring Without Repeat",
             difficulty: "Medium",
             category: "Sliding Window",
+            completed: true,
         },
         {
             id: 8,
             title: "Clone Graph",
+            completed: true,
             difficulty: "Medium",
             category: "Graph",
         },
@@ -52,6 +57,7 @@
         {
             id: 10,
             title: "Course Schedule",
+            completed: true,
             difficulty: "Medium",
             category: "Graph",
         },
@@ -59,6 +65,7 @@
         {
             id: 12,
             title: "Palindrome Check",
+            completed: true,
             difficulty: "Easy",
             category: "String",
         },
@@ -66,11 +73,13 @@
             id: 13,
             title: "Binary Tree Level Order",
             difficulty: "Medium",
+            completed: true,
             category: "Tree",
         },
         { id: 14, title: "LRU Cache", difficulty: "Hard", category: "Design" },
         {
             id: 15,
+            completed: true,
             title: "Merge K Sorted Lists",
             difficulty: "Hard",
             category: "Linked List",
@@ -86,6 +95,7 @@
             title: "Longest Substring Without Repeat",
             difficulty: "Medium",
             category: "Sliding Window",
+            completed: true,
         },
         {
             id: 18,
@@ -156,7 +166,9 @@
 
 <Navbar />
 <section class="py-16 px-6 md:px-12 lg:px-24 space-y-10">
-    <h1 class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase" >
+    <h1
+        class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase"
+    >
         Challenges
     </h1>
 
@@ -199,7 +211,10 @@
             <button class="btn btn-primary rounded-lg" on:click={clearFilters}>
                 Clear Filters
             </button>
-            <button class="btn btn-primary bg-orange-100 border-2 text-black rounded-lg" on:click={clearFilters}>
+            <button
+                class="btn btn-primary bg-orange-100 border-2 text-black rounded-lg"
+                on:click={clearFilters}
+            >
                 Challenge A Friend
             </button>
         </div>
@@ -240,11 +255,14 @@
                 {#each filteredProblems as p (p.id)}
                     <tr
                         class="problem-row hover:bg-gray-50 transition-colors uppercase cursor-pointer"
+                        class:opacity-60={p.completed}
                     >
                         <td class="py-3 px-4">{p.id}</td>
-                        <td class="py-3 px-4 font-medium text-gray-800"
-                            >{p.title}</td
-                        >
+                        <td class="py-3 px-4 font-medium text-gray-800">
+                            <p class:line-through={p.completed}>
+                                {p.title}
+                            </p>
+                        </td>
                         <td class="py-3 px-4">
                             <div class="badge">
                                 {#if p.difficulty === "Easy"}
@@ -295,6 +313,7 @@
 </section>
 
 <Footer />
+
 <style>
     /* Optional: Add some custom styles for very small screens if needed */
     @media (max-width: 640px) {
@@ -338,4 +357,3 @@
         }
     }
 </style>
-

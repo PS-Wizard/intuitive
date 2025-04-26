@@ -24,22 +24,21 @@
 
     onMount(() => {
         gsap.to(title, {
-            scale: 20,
+            scale: 40,
             duration: 1.5,
             ease: "power4.in",
             scrollTrigger: {
                 trigger: hero,
                 start: "top top",
-                end: "+=2000",
+                end: "+=1000",
                 scrub: true,
                 pin: true,
                 onUpdate: (self) => {
-                    // Smoothly animate the background color
                     gsap.to(hero, {
                         backgroundColor:
-                            self.progress > 0.5 ? "black" : "white",
-                        duration: 0.3, // Adjust duration for smoother/faster transition
-                        overwrite: true, // Prevent conflicts if animation updates rapidly
+                            self.progress > 0.7 ? "black" : "white", 
+                        duration: 0.4,
+                        overwrite: true,
                     });
                 },
             },
@@ -47,7 +46,7 @@
 
         gsap.to(cardContainer, {
             xPercent: -4.9 * cardContainer.children.length,
-            ease: "power1.in",
+            ease: "easein",
             scrollTrigger: {
                 trigger: nextSection,
                 pin: true,
@@ -118,7 +117,10 @@
     style="background-color: {heroBackgroundColor};"
     class="hero h-screen w-screen flex items-center justify-center overflow-hidden"
 >
-    <h1 bind:this={title} class="title text-[15vw] font-medium tracking-tight leading-none text-white z-20" >
+    <h1
+        bind:this={title}
+        class="title text-[15vw] font-medium tracking-tight leading-none text-white z-20"
+    >
         INTUITIVE<sup class="align-super">™</sup>
     </h1>
 </section>
@@ -190,7 +192,7 @@
     class="h-screen w-screen bg-white text-black flex justify-center items-center"
 >
     <a
-        class="cursor-pointer bg-black text-white text-[9vw] hover:bg-yellow-100 hover:text-black transition duration-200 font-medium tracking widest uppercase p-4 leading-none text-black sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full"
+        class="cursor-pointer bg-black text-white text-[9vw] hover:bg-yellow-100 hover:text-black transition duration-200 font-medium tracking widest uppercase p-4 leading-none text-black sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full rounded-full "
         href="/auth/signup">Join Us Now!</a
     >
 </section>

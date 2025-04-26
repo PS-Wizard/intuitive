@@ -8,7 +8,11 @@
     let animating = false;
 
     onMount(() => {
-        const lenis = new Lenis();
+        const lenis = new Lenis({
+                wheelMultiplier: 0.7,
+                touchMultiplier: 1.2,
+                smoothWheel: true
+            });
         function raf(time) {
             lenis.raf(time);
             requestAnimationFrame(raf);
@@ -38,7 +42,7 @@
         class="fixed inset-0 z-50 bg-black flex items-center justify-center transition-transform duration-500"
         style="transform: translateY({animating ? '0%' : '100%'})"
     >
-        <h1 class="text-white text-[8vw] font-bold uppercase tracking-wide">
+        <h1 class="text-white text-[8vw] font-semibold uppercase tracking-wide">
             INTUITIVE
         </h1>
     </div>

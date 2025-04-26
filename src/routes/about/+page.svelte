@@ -51,9 +51,7 @@
 <main
     class="px-6 md:px-16 py-24 space-y-32 w-full min-h-screen bg-white flex items-center flex-col"
 >
-    <h1
-        class="hero-title text-4xl md:text-5xl lg:text-[120px] font-extrabold leading-none tracking-tight text-center text-gray-900 uppercase"
-    >
+    <h1 class="hero-title text-4xl md:text-5xl lg:text-[120px] font-extrabold leading-none tracking-tight text-center text-gray-900 uppercase" >
         About Us
     </h1>
     <section
@@ -79,7 +77,7 @@
     </section>
     <section class="w-screen flex flex-col">
         <h1
-            class="hero-title text-4xl m-4 md:text-5xl lg:text-[100px] font-extrabold leading-none tracking-tight text-center text-gray-900 uppercase"
+            class="hero-title text-4xl m-4 md:text-5xl lg:text-[100px] font-extrabold leading-none tracking-wide text-center text-gray-900 uppercase"
         >
             Meet the team
         </h1>
