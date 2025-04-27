@@ -44,7 +44,7 @@ alert('Two Sum Result: ' + result);
             editorInstance = monaco.editor.create(editorDiv, {
                 value: predefinedCode, // Set the predefined code
                 language: selectedLanguage,
-                theme: "vs-dark",
+                theme: "vs-light",
                 automaticLayout: true,
             });
             isMonacoLoaded = true;
@@ -225,7 +225,7 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].`}
                 >
             </div>
         </div>
-        <div class="flex-1 rounded-xl shadow overflow-hidden">
+        <div class="flex-1 rounded-xl shadow overflow-hidden border-1">
             <div bind:this={editorDiv} class="code-editor w-full h-full"></div>
         </div>
     </div>
