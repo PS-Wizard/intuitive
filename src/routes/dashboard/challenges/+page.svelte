@@ -166,9 +166,7 @@
 
 <Navbar />
 <section class="py-16 px-6 md:px-12 lg:px-24 space-y-10">
-    <h1
-        class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase"
-    >
+    <h1 class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase" >
         Challenges
     </h1>
 
@@ -286,9 +284,8 @@
                         <td class="py-3 px-4">{p.category}</td>
                         <td class="py-3 px-4 text-right">
                             <div class="space-x-2 flex justify-end">
-                                <button
-                                    class="btn btn-sm btn-outline rounded-lg"
-                                    >Solve</button
+                                <a class="btn btn-sm btn-outline rounded-lg" href="/dashboard/challenges/specific"
+                                    >Solve</a
                                 >
                                 <button class="btn btn-sm btn-link rounded-lg"
                                     >Learn</button

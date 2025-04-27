@@ -14,7 +14,7 @@
     });
 </script>
 
-<div class="code-block mockup-code bg-[#191724]">
+<div class="code-block mockup-code bg-[#191724] text-[17px]">
     {@html highlightedCode}
 </div>
 

@@ -2,10 +2,8 @@
     import { onMount } from "svelte";
     import Navbar from "../../components/navbar.svelte";
     import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
     onMount(() => {
-        gsap.registerPlugin(ScrollTrigger);
         gsap.from(".hero-title", {
             opacity: 0,
             y: -30,
@@ -51,7 +49,9 @@
 <main
     class="px-6 md:px-16 py-24 space-y-32 w-full min-h-screen bg-white flex items-center flex-col"
 >
-    <h1 class="hero-title text-4xl md:text-5xl lg:text-[120px] font-extrabold leading-none tracking-tight text-center text-gray-900 uppercase" >
+    <h1
+        class="hero-title text-4xl md:text-5xl lg:text-[120px] font-extrabold leading-none tracking-tight text-center text-gray-900 uppercase"
+    >
         About Us
     </h1>
     <section
