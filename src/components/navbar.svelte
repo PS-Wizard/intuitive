@@ -35,6 +35,12 @@
     <div class="hidden md:flex space-x-6 text-sm font-medium">
         {#if loggedIn}
             <a
+                href="/leaderboards"
+                class="nav-btn btn btn-secondary border border-black rounded-lg btn-md"
+            >
+                Leaderboards
+            </a>
+            <a
                 href="/dashboard/courses"
                 class="nav-btn btn btn-secondary border border-black rounded-lg btn-md"
             >

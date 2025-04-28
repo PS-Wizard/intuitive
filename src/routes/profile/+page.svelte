@@ -129,7 +129,7 @@
         </div>
     </section>
     <section
-        class="w-full flex px-8 py-12 flex-col mt-4 justify-between gap-8 items-center"
+        class="w-full flex px-8 py-12 flex-col mt-4 gap-8 items-center"
     >
         <div class="rounded-full">
             <!--

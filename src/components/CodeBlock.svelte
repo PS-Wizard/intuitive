@@ -13,6 +13,9 @@
         // Get the highlighted HTML using the shorthand method
         highlightedCode = await codeToHtml(code, { lang: language, theme });
     });
+    
+
+
 </script>
 
 <div class="code-block mockup-code bg-[#191724]" style="font-size: {fontSize}">
