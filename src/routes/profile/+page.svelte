@@ -56,12 +56,14 @@
         class="lg:max-w-2/3 px-8 py-12 space-y-20 flex flex-col items-center gap-4 lg:h-screen"
     >
         <div class="space-y-2 flex justify-between items-left flex-col">
-        <h1
+            <h1
                 class="hero-title text-7xl md:text-8xl md:text-[150px] font-bold tracking-tight text-center md:text-left text-gray-900 uppercase"
             >
                 {name}
             </h1>
-            <div class="flex flex-col justify-start items-end lg:flex-row lg:justify-between w-full gap-2" >
+            <div
+                class="flex flex-col justify-start items-end lg:flex-row lg:justify-between w-full gap-2"
+            >
                 <div>
                     <h1
                         class="text-sm font-semibold stat-item badge badge-outline"
@@ -74,9 +76,18 @@
                         500+ Connections
                     </h1>
                 </div>
-                <h1 class="text-sm font-semibold stat-item badge badge-primary">
-                    {email}
-                </h1>
+                <div>
+                    <h1
+                        class="text-sm font-semibold stat-item badge badge-primary"
+                    >
+                        {email}
+                    </h1>
+                    <h1
+                        class="text-sm font-semibold stat-item badge badge-accent"
+                    >
+                        6900 Elo Rating
+                    </h1>
+                </div>
             </div>
         </div>
         <div class="space-y-5 w-full align-right">
@@ -86,7 +97,7 @@
                     type="text"
                     bind:value={name}
                     required
-                    class="w-full mt-2 px-3 py-3 text-gray-500 bg-transparent border-2 border-black outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
+                    class="nameInput w-full mt-2 px-3 py-3 text-gray-500 bg-transparent border-2 border-black outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
                 />
             </div>
             <div class="input-group">
@@ -95,7 +106,8 @@
                     type="text"
                     bind:value={email}
                     required
-                    class="w-full mt-2 px-3 py-3 text-gray-500 bg-transparent outline-none border-2 border-black focus:border-indigo-600 shadow-sm rounded-lg"
+                    class="w-full mt-2 px-3 py-3 text-gray-500 outline-none border-2 border-red-100 shadow-sm rounded-lg bg-red-100"
+                    disabled
                 />
             </div>
             <div class="input-group">
@@ -106,7 +118,7 @@
                     type="text"
                     bind:value={password}
                     required
-                    class="w-full mt-2 px-3 py-3 text-gray-500 bg-transparent outline-none border-2 border-black focus:border-indigo-600 shadow-sm rounded-lg"
+                    class="passwordInput w-full mt-2 px-3 py-3 text-gray-500 bg-transparent outline-none border-2 border-black focus:border-indigo-600 shadow-sm rounded-lg"
                 />
             </div>
             <button

@@ -36,8 +36,8 @@
                 onUpdate: (self) => {
                     gsap.to(hero, {
                         backgroundColor:
-                            self.progress > 0.7 ? "black" : "white", 
-                        duration: 0.4,
+                            self.progress > 0.7 ? "black" : "white",
+                        duration: 0.3,
                         overwrite: true,
                     });
                 },
@@ -45,8 +45,8 @@
         });
 
         gsap.to(cardContainer, {
-            xPercent: -4.9 * cardContainer.children.length,
-            ease: "easein",
+            xPercent: -4.5 * cardContainer.children.length,
+            ease: "power1.out",
             scrollTrigger: {
                 trigger: nextSection,
                 pin: true,
@@ -81,7 +81,7 @@
         },
     ];
 
-    const cardCount = 5; // how many times to repeat the set
+    const cardCount = 4; // how many times to repeat the set
 
     const statData = [
         { text: "100% Opensource", bg: "#fde68a" }, // yellow
@@ -137,7 +137,6 @@
     <div
         bind:this={cardContainer}
         class="card-container h-full flex items-center px-16 gap-10"
-        style="width: max-content;"
     >
         {#each Array(cardCount) as _, i}
             {#each cardTypes as type, j}
@@ -184,20 +183,20 @@
             </h1>
         </section>
     {/each}
-</div>
-
-<section class="h-screen w-screen bg-black"></section>
-<!-- Next section after stats -->
-<section
-    class="h-screen w-screen bg-white text-black flex justify-center items-center"
->
-    <a
-        class="cursor-pointer bg-black text-white text-[9vw] hover:bg-yellow-100 hover:text-black transition duration-200 font-medium tracking widest uppercase p-4 leading-none text-black sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full rounded-full "
-        href="/auth/signup">Join Us Now!</a
+    <section
+        class="stat h-screen w-screen bg-white text-black flex justify-center items-center"
     >
-</section>
-
+        <a
+            class="cursor-pointer bg-black text-white text-[9vw] hover:bg-yellow-100 hover:text-black transition duration-200 font-medium tracking widest uppercase p-4 leading-none text-black sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full rounded-lg "
+            href="/auth/signup">Join Us Now!</a
+        >
+    </section>
+</div>
+<section class="h-screen w-screen"> </section>
 <Footer />
+
+<!-- Next section after stats -->
+
 
 <style>
     .title {

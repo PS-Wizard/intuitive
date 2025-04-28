@@ -1,6 +1,8 @@
 <script>
     import Logo from "./logo.svelte";
     import { isLoggedIn } from "$lib/auth.js";
+    import gsap from "gsap";
+    import { onMount } from "svelte";
 
     let isOpen = false;
     let loggedIn = false;
@@ -8,41 +10,55 @@
     if (typeof window !== "undefined") {
         loggedIn = isLoggedIn();
     }
+
+    onMount(() => {
+        gsap.from(gsap.utils.toArray(".nav-btn"), {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            stagger: 0.1,
+            delay: 1.6,
+            ease: "power2.out",
+        });
+    });
 </script>
 
 <nav
-    class="flex items-center justify-between px-6 py-4 backdrop-blur bg-white/30 z-50"
+    class="navbar flex items-center justify-between px-6 py-4 backdrop-blur bg-white/30 z-50"
 >
-    <!-- Left: Logo -->
-    <Logo />
+    <a
+        class="font-2xl nav-btn uppercase font-bold tracking-wide bg-black text-white inline"
+        href="/">Intuitive</a
+    >
 
     <!-- Right: Desktop Nav -->
     <div class="hidden md:flex space-x-6 text-sm font-medium">
         {#if loggedIn}
             <a
                 href="/dashboard/courses"
-                class="btn btn-secondary border border-black rounded-lg btn-md"
+                class="nav-btn btn btn-secondary border border-black rounded-lg btn-md"
             >
                 Courses
             </a>
             <a
                 href="/dashboard/challenges"
-                class="btn btn-secondary border border-black rounded-lg btn-md"
+                class="nav-btn btn btn-secondary border border-black rounded-lg btn-md"
             >
                 Challenges
             </a>
-            <a href="/profile" class="btn btn-primary btn-md rounded-lg"
+            <a href="/profile" class="nav-btn btn btn-primary btn-md rounded-lg"
                 >Profile</a
             >
         {:else}
             <a
                 href="/auth/login"
-                class="btn btn-secondary border border-black rounded-lg btn-md"
+                class="nav-btn btn btn-secondary border border-black rounded-lg btn-md"
             >
                 Login
             </a>
-            <a href="/auth/signup" class="btn btn-primary btn-md rounded-lg"
-                >Sign Up</a
+            <a
+                href="/auth/signup"
+                class="nav-btn btn btn-primary btn-md rounded-lg">Sign Up</a
             >
         {/if}
     </div>

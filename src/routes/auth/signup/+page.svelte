@@ -2,7 +2,6 @@
     import { goto } from "$app/navigation";
     import { signupUser } from "$lib/auth.js";
 
-    let name = "";
     let email = "";
     let password = "";
     let error = "";
@@ -10,7 +9,7 @@
     const handleSubmit = (e) => {
         e.preventDefault();
         try {
-            const user = signupUser({ name, email, password });
+            const user = signupUser({ email, password });
             console.log("Signed up:", user);
             goto("/auth/login");
         } catch (err) {
@@ -79,15 +78,6 @@
             </div>
 
             <form class="space-y-5" on:submit={handleSubmit}>
-                <div>
-                    <label class="font-medium">Name</label>
-                    <input
-                        type="text"
-                        bind:value={name}
-                        required
-                        class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-                    />
-                </div>
                 <div>
                     <label class="font-medium">Email</label>
                     <input

@@ -5,6 +5,7 @@
     export let code: string;
     export let language: string = "javascript"; // Default to JavaScript
     export let theme: string = "rose-pine"; // Default theme
+    export let fontSize: string = "17px";
 
     let highlightedCode: string;
 
@@ -14,7 +15,7 @@
     });
 </script>
 
-<div class="code-block mockup-code bg-[#191724] text-[17px]">
+<div class="code-block mockup-code bg-[#191724]" style="font-size: {fontSize}">
     {@html highlightedCode}
 </div>
 

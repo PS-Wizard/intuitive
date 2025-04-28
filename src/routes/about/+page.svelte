@@ -77,7 +77,7 @@
     </section>
     <section class="w-screen flex flex-col">
         <h1
-            class="hero-title text-4xl m-4 md:text-5xl lg:text-[100px] font-extrabold leading-none tracking-wide text-center text-gray-900 uppercase"
+            class="hero-title text-4xl m-4 md:text-5xl lg:text-[100px] font-bold leading-none tracking-wide text-center text-gray-900 uppercase"
         >
             Meet the team
         </h1>

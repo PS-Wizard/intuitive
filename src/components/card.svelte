@@ -7,7 +7,7 @@
         badgeA = "Some Badge",
         badgeB = "Some Other Badge",
         isNew = false,
-        location = "/courses/idk",
+        location = "/auth/login",
         img = "/assets/backend.svg",
         color = "bg-yellow-200",
         imgPadding = "p-4",
