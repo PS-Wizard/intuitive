@@ -1,4 +1,6 @@
 <script>
+    import { goto } from "$app/navigation";
+
     export let title;
     export let tutorName;
     export let rating;
@@ -9,6 +11,7 @@
 <div
     tabindex="0"
     class={`course-card text-black rounded-lg border-2 hover:bg-black hover:text-white transition duration-200 cursor-pointer flex flex-col justify-between h-full focus:outline-2 focus:outline-offset-2 focus:outline-black ${styleOverrides}`}
+    on:click={() => goto("/enrolement")}
 >
     <div>
         <h1 class="py-6 px-4 uppercase text-xl font-semibold max-w-[20ch]">

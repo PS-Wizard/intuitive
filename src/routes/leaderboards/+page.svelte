@@ -8,67 +8,67 @@
         {
             rank: 1,
             name: "John Doe",
-            badge: "Wizard",
+            badge: "Engineering Director",
             points: 3200,
         },
         {
             rank: 2,
             name: "Jane Smith",
-            badge: "Eternal",
+            badge: "VP of Engineering",
             points: 3100,
         },
         {
             rank: 3,
             name: "Alice Brown",
-            badge: "Phoenix",
+            badge: "Staff Engineer",
             points: 3050,
         },
         {
             rank: 4,
             name: "Bob White",
-            badge: "Vanguard",
+            badge: "Tech Lead",
             points: 2900,
         },
         {
             rank: 5,
             name: "Charlie Black",
-            badge: "Wizard",
+            badge: "Principal Developer",
             points: 2700,
         },
         {
             rank: 6,
             name: "Derek Lee",
-            badge: "Eternal",
+            badge: "Lead Developer",
             points: 2600,
         },
         {
             rank: 7,
             name: "Eve Green",
-            badge: "Phoenix",
+            badge: "Senior Developer",
             points: 2500,
         },
         {
             rank: 8,
             name: "Frank Blue",
-            badge: "Vanguard",
+            badge: "Developer",
             points: 2400,
         },
         {
             rank: 9,
             name: "Grace Red",
-            badge: "Wizard",
+            badge: "Junior Developer",
             points: 2300,
         },
         {
             rank: 10,
             name: "Holly Yellow",
-            badge: "Eternal",
+            badge: "Intern",
             points: 2200,
         },
         {
             rank: 11,
-            name: "You",
-            badge: "Eternal",
+            name: "Charles Olivera.",
+            badge: "Junior Developer",
             points: 1100,
         },
     ];
@@ -140,24 +140,54 @@
                         </td>
                         <td class="py-3 px-4">
                             <div class="badge">
-                                {#if p.badge === "Wizard"}
+                                {#if p.badge === "Engineering Director"}
                                     <span
                                         class="bg-black text-white font-medium tracking-wide uppercase border-none"
                                         >{p.badge}</span
                                     >
-                                {:else if p.badge === "Eternal"}
+                                {:else if p.badge === "VP of Engineering"}
                                     <span
-                                        class="bg-orange-100 text-black font-medium tracking-wide uppercase border-none"
+                                        class="bg-blue-500 text-white font-medium tracking-wide uppercase border-none"
                                         >{p.badge}</span
                                     >
-                                {:else if p.badge === "Phoenix"}
+                                {:else if p.badge === "Staff Engineer"}
                                     <span
-                                        class="bg-orange-200 text-black font-medium tracking-wide uppercase border-none"
+                                        class="bg-blue-400 text-white font-medium tracking-wide uppercase border-none"
                                         >{p.badge}</span
                                     >
-                                {:else if p.badge === "Vanguard"}
+                                {:else if p.badge === "Tech Lead"}
                                     <span
-                                        class="bg-orange-300 text-black font-medium tracking-wide uppercase border-none"
+                                        class="bg-green-500 text-white font-medium tracking-wide uppercase border-none"
+                                        >{p.badge}</span
+                                    >
+                                {:else if p.badge === "Principal Developer"}
+                                    <span
+                                        class="bg-orange-500 text-white font-medium tracking-wide uppercase border-none"
+                                        >{p.badge}</span
+                                    >
+                                {:else if p.badge === "Lead Developer"}
+                                    <span
+                                        class="bg-yellow-500 text-white font-medium tracking-wide uppercase border-none"
+                                        >{p.badge}</span
+                                    >
+                                {:else if p.badge === "Senior Developer"}
+                                    <span
+                                        class="bg-red-500 text-white font-medium tracking-wide uppercase border-none"
+                                        >{p.badge}</span
+                                    >
+                                {:else if p.badge === "Developer"}
+                                    <span
+                                        class="bg-indigo-500 text-white font-medium tracking-wide uppercase border-none"
+                                        >{p.badge}</span
+                                    >
+                                {:else if p.badge === "Junior Developer"}
+                                    <span
+                                        class="bg-pink-500 text-white font-medium tracking-wide uppercase border-none"
+                                        >{p.badge}</span
+                                    >
+                                {:else if p.badge === "Intern"}
+                                    <span
+                                        class="bg-gray-500 text-white font-medium tracking-wide uppercase border-none"
                                         >{p.badge}</span
                                     >
                                 {/if}
@@ -172,6 +202,7 @@
 </section>
 
 <Footer />
+
 <style>
     table {
         border-collapse: collapse;
@@ -195,4 +226,3 @@
         display: inline-block;
     }
 </style>
-

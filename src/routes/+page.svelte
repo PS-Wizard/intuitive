@@ -186,8 +186,7 @@
     <section
         class="stat h-screen w-screen bg-white text-black flex justify-center items-center"
     >
-        <a
-            class="cursor-pointer bg-black text-white text-[9vw] hover:bg-yellow-100 hover:text-black transition duration-200 font-medium tracking widest uppercase p-4 leading-none text-black sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full rounded-lg "
+        <a class="cursor-pointer bg-black text-white text-[9vw] hover:bg-yellow-100 hover:text-black transition duration-200 font-medium tracking widest uppercase p-4 leading-none text-black sm:text-[5vw] md:text-[7vw] lg:text-[10vw] max-w-full rounded-lg "
             href="/auth/signup">Join Us Now!</a
         >
     </section>

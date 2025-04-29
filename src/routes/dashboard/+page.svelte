@@ -23,9 +23,9 @@
             imgPadding: "p-8",
         },
         {
-            img: "/assets/frontend.svg",
+            img: "/assets/backend.svg",
             color: "bg-rose-200",
-            imgPadding: "p-8",
+            imgPadding: "pt-4",
         },
     ];
 
@@ -36,7 +36,7 @@
         badgeA: "Primeagen",
         badgeB: "Enrolled",
         isNew: false,
-        location: `/specificCourse`,
+        location: `/enrolement`,
     }));
 
     const exploreCourses = cardTypes.map((c, i) => ({
@@ -46,7 +46,16 @@
         badgeA: "New",
         badgeB: "Popular",
         isNew: true,
-        location: `/courses/explore-${i}`,
+        location: `/dashboard/courses`,
+    }));
+    const courseHistory = cardTypes.map((c, i) => ({
+        ...c,
+        title: `Previously Viewed Course ${i + 1}`,
+        description: "You've eyed this course before.",
+        badgeA: "TJ-Devrees",
+        badgeB: "Backend",
+        isNew: false,
+        location: `/enrolement`,
     }));
 
     onMount(() => {
@@ -85,10 +94,10 @@
 
 <Navbar />
 
-<section
-    class="min-h-screen w-full px-8 py-12 space-y-20 flex flex-col items-center gap-4"
->
-    <h1 class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase" >
+<section class="min-h-screen w-full px-8 py-12 space-y-20 flex flex-col items-center gap-4" >
+    <h1
+        class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase"
+    >
         Dashboard
     </h1>
     <!-- My Current Courses -->
@@ -96,7 +105,9 @@
         <div
             class="flex flex-col lg:flex-row items-center justify-between gap-4 mb-6"
         >
-            <h2 class="text-lg border-2 border-black font-bold bg-yellow-200 px-4 py-2 rounded-full font-bold uppercase" >
+            <h2
+                class="text-lg border-2 border-black font-bold bg-yellow-200 px-4 py-2 rounded-full font-bold uppercase"
+            >
                 Pick up where you left off!
             </h2>
             <div
@@ -158,6 +169,38 @@
                     badgeA={c.badgeA}
                     badgeB={c.badgeB}
                     isNew
+                    location={c.location}
+                />
+            {/each}
+        </div>
+    </div>
+    <div>
+        <div
+            class="flex flex-col lg:flex-row items-center justify-between gap-4 mb-6"
+        >
+            <h2
+                class="text-lg text-center border-2 border-black font-bold bg-yellow-100 text-black px-4 py-2 rounded-full font-bold uppercase"
+            >
+                Revist Courses you've eyed
+            </h2>
+            <a
+                href="/dashboard/courses"
+                class="border-2 border-black text-lg font-semibold px-4 py-2 rounded-full hover:bg-black hover:text-white cursor-pointer transition duration-200"
+            >
+                View More ->
+            </a>
+        </div>
+
+        <div class="flex flex-wrap gap-8 w-full justify-center items-center">
+            {#each courseHistory as c}
+                <Card
+                    title={c.title}
+                    description={c.description}
+                    img={c.img}
+                    color={`${c.color} border-2`}
+                    imgPadding={c.imgPadding}
+                    badgeA={c.badgeA}
+                    badgeB={c.badgeB}
                     location={c.location}
                 />
             {/each}

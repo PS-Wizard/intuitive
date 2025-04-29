@@ -66,7 +66,7 @@
                 action: () => goto("/courseDescription"),
             },
         ],
-        "/profile": [
+        "/profile/personalDetails": [
             {
                 name: "Edit Name",
                 shortcut: " - Change Your Name",
@@ -76,6 +76,34 @@
                 name: "Edit Password",
                 shortcut: " - Change Your Password",
                 action: () => document.querySelector(".passwordInput").focus(),
+            },
+        ],
+        "/profile": [
+            {
+                name: "View Personal Details",
+                shortcut: " - Change Your Personal Details",
+                action: () => goto("/profile/personalDetails"),
+            },
+            {
+                name: "Privacy Policy",
+                shortcut: " - View Our Privacy Policy",
+                action: () => goto("/privacyPolicy"),
+            },
+            {
+                name: "Log Out",
+                shortcut: " - Log Out Of Your Account",
+                action: () => {
+                    const logoutDiv = document.querySelector(".logout-btn");
+                    logoutDiv?.focus();
+                },
+            },
+            {
+                name: "Delete Your Account",
+                shortcut: " - View Our Privacy Policy",
+                action: () => {
+                    const deleteDiv = document.querySelector(".delete-account");
+                    deleteDiv?.focus();
+                },
             },
         ],
         "/dashboard": [
@@ -135,11 +163,6 @@
             name: "Cookie Policy",
             shortcut: " - View Our Cookie Policy",
             action: () => goto("/cookies"),
-        },
-        {
-            name: "About Us",
-            shortcut: " - Learn About Us",
-            action: () => goto("/about"),
         },
     ];
 

@@ -18,17 +18,12 @@
             class="links flex gap-8 text-lg font-medium justify-center items-center"
         >
             <a
-                href="/about"
-                class="uppercase hover:underline transition duration-300"
-                >About</a
-            >
-            <a
                 href="/contact"
                 class="uppercase hover:underline transition duration-300"
                 >Contact</a
             >
             <a
-                href="/privacy"
+                href="/privacyPolicy"
                 class="uppercase hover:underline transition duration-300"
                 >Privacy</a
             >

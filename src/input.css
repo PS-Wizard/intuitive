@@ -7,6 +7,27 @@
 html {
     scroll-snap-type: proximity;
 }
+.swal2-confirm {
+    background:black;
+    color:#fff;
+    border:2px solid black;
+}
+.swal2-popup{
+    border:2px solid black;
+}
+.swal2-toast{
+}
+.swal2-title {
+    font-size:24px;
+    font-family:"Geist",serif;
+    font-weight: 600;
+}
+.swal2-cancel {
+    border:2px solid black;
+    background: #fff;
+    color:#000;
+}
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui";
