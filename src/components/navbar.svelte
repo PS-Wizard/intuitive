@@ -94,6 +94,7 @@
         {#if loggedIn}
             <a href="/dashboard/courses" class="block">Courses</a>
             <a href="/dashboard/challenges" class="block">Challenges</a>
+            <a href="/leaderboards" class="block">leaderboards</a>
             <a href="/profile" class="block">Profile</a>
         {:else}
             <a href="/auth/login" class="block">Login</a>

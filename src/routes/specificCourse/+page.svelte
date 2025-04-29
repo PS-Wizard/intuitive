@@ -65,7 +65,7 @@
                 <iframe
                     title="Course Content"
                     id="player"
-                    src="https://www.youtube.com/embed/x7v6SNIgJpE?&controls=0&showinfo=0"
+                    src="https://www.youtube.com/embed/x7v6SNIgJpE?&controls=1&showinfo=0"
                     frameborder="0"
                     allow="autoplay"
                     class="absolute top-0 left-0 w-full h-full"
@@ -79,8 +79,8 @@
             class="flex flex-col bg-white items-center h-auto justify-center w-full p-12"
         >
             {#if current === 1}
-                <section class="content-section prose w-full max-w-3xl mb-12">
-                    <h1 class="font-medium">Introduction to HTMX</h1>
+                <section class="content-section prose-lg w-full max-w-3xl mb-12">
+                    <h1 class="font-medium uppercase tracking-wide">Introduction to HTMX</h1>
                     <ul>
                         <li>
                             The hype around HTMX has been growing in the dev
