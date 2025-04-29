@@ -2,12 +2,30 @@
     import { goto } from "$app/navigation";
     import { isLoggedIn, loginUser } from "$lib/auth.js";
     import { onMount } from "svelte";
+    import Navbar from "../../../components/navbar.svelte";
+    import gsap from "gsap";
+    let taglineElement;
+
+    // Function to rotate and change the tagline
+    const rotateTagline = () => {
+        gsap.to(taglineElement, {
+            rotation: `+=${Math.random() * 360}`,
+            duration: Math.random() * 2 + 1,
+            ease: `power${Math.floor(Math.random() * 4) + 1}.inOut`,
+            scale: Math.random() * (1.5 - 0.5) + 0.5,
+            yoyo: true,
+            repeat: -1,
+            stagger: Math.random() * 0.5 + 0.2,
+        });
+    };
 
     onMount(() => {
         if (isLoggedIn()) {
             goto("/dashboard");
         }
+        setInterval(rotateTagline, 3000); // Rotate every 3 seconds
     });
+
     let email = "";
     let password = "";
     let error = "";
@@ -26,16 +44,20 @@
     };
 </script>
 
-<main class="w-full flex flex-col lg:flex-row-reverse h-screen">
-    <div
-        class="hidden lg:flex flex-1 flex-col items-center justify-center bg-blue-300"
-    ></div>
+<Navbar />
+
+<main class="w-full flex flex-col lg:flex-row-reverse h-[80vh]">
+    <div class="hidden lg:flex flex-1 flex-col items-center justify-center">
+        <div class="h-[350px] w-[350px] border-2" bind:this={taglineElement}>
+            <p class="text-4xl p-4 uppercase text-black">Welcome Back!</p>
+        </div>
+    </div>
 
     <div class="flex-1 flex items-center justify-center bg-white text-gray-600">
         <div class="w-full max-w-md space-y-8 px-4 sm:px-0">
             <div>
                 <div class="mt-5 space-y-2">
-                    <h3 class="text-gray-800 text-2xl font-bold sm:text-3xl">
+                    <h3 class="text-gray-800 lg:text-8xl font-medium uppercase text-3xl" >
                         Log in
                     </h3>
                     <p>
@@ -127,3 +149,6 @@
         </div>
     </div>
 </main>
+
+<style>
+</style>

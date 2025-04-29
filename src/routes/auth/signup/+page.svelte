@@ -1,10 +1,25 @@
 <script>
     import { goto } from "$app/navigation";
     import { signupUser } from "$lib/auth.js";
+    import { onMount } from "svelte";
+    import gsap from "gsap";
+    import Navbar from "../../../components/navbar.svelte";
 
     let email = "";
     let password = "";
     let error = "";
+    let taglineElement;
+    const rotateTagline = () => {
+        gsap.to(taglineElement, {
+            rotation: `+=${Math.random() * 360}`,
+            duration: Math.random() * 2 + 1,
+            ease: `power${Math.floor(Math.random() * 4) + 1}.inOut`,
+            scale: Math.random() * (1.5 - 0.5) + 0.5,
+            yoyo: true,
+            repeat: -1,
+            stagger: Math.random() * 0.5 + 0.2,
+        });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,21 +31,27 @@
             error = err.message;
         }
     };
+    onMount(() => {
+        setInterval(rotateTagline(), 5000);
+    });
 </script>
 
+<Navbar />
 <main class="w-full flex flex-col lg:flex-row h-screen">
     <!-- Left Side - Yellow block (hidden on small screens) -->
-    <div
-        class="hidden lg:flex flex-1 flex-col items-center justify-center bg-yellow-300"
-    ></div>
+    <div class="hidden lg:flex flex-1 flex-col items-center justify-center">
+        <div class="h-[350px] w-[350px] border-2" bind:this={taglineElement}>
+            <p class="text-4xl p-4 uppercase text-black">Lets Get Started!</p>
+        </div>
+    </div>
 
     <!-- Right Side - Signup Form -->
     <div class="flex-1 flex items-center justify-center bg-white text-gray-600">
         <div class="w-full max-w-md space-y-8 px-4 sm:px-0">
             <div>
                 <div class="mt-5 space-y-2">
-                    <h3 class="text-gray-800 text-2xl font-bold sm:text-3xl">
-                        Sign up
+                    <h3 class="text-gray-800 lg:text-8xl font-medium uppercase text-3xl" >
+                        Sign Up 
                     </h3>
                     <p>
                         Already have an account?
