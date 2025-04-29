@@ -94,7 +94,9 @@
 
 <Navbar />
 
-<section class="min-h-screen w-full px-8 py-12 space-y-20 flex flex-col items-center gap-4" >
+<section
+    class="min-h-screen w-full px-8 py-12 space-y-20 flex flex-col items-center gap-4"
+>
     <h1
         class="hero-title text-4xl md:text-5xl lg:text-[150px] font-bold tracking-tight text-center text-gray-900 uppercase"
     >

@@ -12,6 +12,7 @@
             rating: "4.8/5 Stars",
             profileBgColor: "bg-teal-100",
             cardBgColor: "bg-teal-50",
+            disabled: true,
         },
         {
             title: "Python for Backend",
@@ -19,6 +20,7 @@
             rating: "4.9/5 Stars",
             profileBgColor: "bg-teal-100",
             cardBgColor: "bg-teal-50",
+            disabled: true,
         },
         {
             title: "Advanced Databases",
@@ -26,6 +28,7 @@
             rating: "4.7/5 Stars",
             profileBgColor: "bg-teal-100",
             cardBgColor: "bg-teal-50",
+            disabled: false,
         },
         {
             title: "Express.js and MongoDB",
@@ -284,6 +287,7 @@
                     rating={course.rating}
                     profileBgColor={course.profileBgColor}
                     styleOverrides={course.cardBgColor}
+                    disabled={course.disabled}
                 />
             {/each}
         </section>
