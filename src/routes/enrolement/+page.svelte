@@ -122,14 +122,12 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
                 quia neque reiciendis possimus libero. Animi ratione et
                 deserunt! Ducimus, ipsam pariatur qui veritatis dolore neque
-                repellat <span id="highlight"
-                    >aperiam impedit blanditiis labore</span
+                repellat <span id="highlight" >aperiam impedit blanditiis labore</span
                 >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque Lorem
                 ipsum dolor sit amet consectetur adipisicing elit. Cumque quia neque
                 reiciendis possimus libero. Animi ratione et deserunt! Ducimus, ipsam
                 pariatur qui veritatis dolore neque repellat
-                <span id="highlight">aperiam impedit blanditiis labore</span>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quia
                 neque reiciendis sit amet consectetur adipisicing elit. Cumque quia
                 neque reiciendis possimus libero. Animi ratione et deserunt! Ducimus,
@@ -141,7 +139,7 @@
                 adipisicing elit. Cumque quia neque reiciendis possimus libero. Animi
                 ratione et deserunt! Ducimus, ipsam pariatur qui veritatis dolore
                 neque repellat
-                <span id="highlight">aperiam impedit blanditiis labore</span> Lorem
+                <span id="highlight">aperiam impedit </span>blanditiis labore Lorem
                 ipsum dolor sit amet consectetur adipisicing elit. Cumque quia neque
                 reiciendis sit amet consectetur adipisicing elit. Cumque quia neque
                 reiciendis possimus libero. Animi ratione et deserunt! Ducimus, ipsam
@@ -159,14 +157,12 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
                 quia neque reiciendis possimus libero. Animi ratione et
                 deserunt! Ducimus, ipsam pariatur qui veritatis dolore neque
-                repellat <span id="highlight"
-                    >aperiam impedit blanditiis labore</span
+                repellat <span id="highlight" >aperiam impedit blanditiis labore</span
                 >
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque Lorem
                 ipsum dolor sit amet consectetur adipisicing elit. Cumque quia neque
                 reiciendis possimus libero. Animi ratione et deserunt! Ducimus, ipsam
                 pariatur qui veritatis dolore neque repellat
-                <span id="highlight">aperiam impedit blanditiis labore</span>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quia
                 neque reiciendis sit amet consectetur adipisicing elit. Cumque quia
                 neque reiciendis possimus libero. Animi ratione et deserunt! Ducimus,
@@ -178,7 +174,7 @@
                 adipisicing elit. Cumque quia neque reiciendis possimus libero. Animi
                 ratione et deserunt! Ducimus, ipsam pariatur qui veritatis dolore
                 neque repellat
-                <span id="highlight">aperiam impedit blanditiis labore</span> Lorem
+                <span id="highlight">aperiam impedit </span>blanditiis labore Lorem
                 ipsum dolor sit amet consectetur adipisicing elit. Cumque quia neque
                 reiciendis sit amet consectetur adipisicing elit. Cumque quia neque
                 reiciendis possimus libero. Animi ratione et deserunt! Ducimus, ipsam
@@ -245,7 +241,7 @@
             </div>
         </div>
         <div class="m-12 flex gap-2 flex-col">
-            <button class="btn btn-primary rounded-lg tracking-widest hover:bg-white hover:text-black hover:border-2 hover:border-black font-lg uppercase w-full py-4 px-6"> Enroll Now </button> 
+            <a class="btn btn-primary rounded-lg tracking-widest hover:bg-white hover:text-black hover:border-2 hover:border-black font-lg uppercase w-full py-4 px-6" href="/specificCourse"> Enroll Now </a> 
         </div>
     </div>
 </div>
