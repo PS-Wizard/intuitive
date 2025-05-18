@@ -189,6 +189,8 @@
                 query = "";
                 handleSelect(topResult);
             }
+        } else if (e.key === "Escape") {
+            isOpen.set(false);
         }
     }
 
@@ -219,6 +221,22 @@
 
     $: if ($isOpen && browser) setTimeout(() => inputRef?.focus(), 0);
 </script>
+
+<!-- Search button bottom right -->
+<button
+	class="fixed bottom-0 right-0 m-[20px] w-12 h-12 flex items-center justify-center cursor-pointer bg-primary text-white rounded-full shadow-lg z-40"
+	on:click={() => isOpen.set(true)}
+	aria-label="Open search"
+>
+	<i class="fas fa-search"></i>
+</button>
+
+<button
+  class="fixed font-sm font-semibold bottom-0 m-[20px] w-auto px-4 py-2 h-12 bg-black flex items-center justify-center cursor-pointer text-white rounded-lg shadow-lg z-40"
+  aria-label="Show Experience"
+>
+    Exp: 69420 🔥
+</button>
 
 {#if $isOpen}
     <div
